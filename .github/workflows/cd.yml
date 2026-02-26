@@ -46,6 +46,17 @@ jobs:
         id: repo-name
         run: echo "repo=${GITHUB_REPOSITORY,,}" >> $GITHUB_OUTPUT
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          
+      - name: Install dependencies and build Next.js app
+        run: |
+          cd services/${{ matrix.service }}
+          npm ci
+          npm run build
+          
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
