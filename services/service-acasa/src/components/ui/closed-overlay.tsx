@@ -76,8 +76,8 @@ export function ClosedOverlay({ onUnlock }: { onUnlock?: () => void }) {
                             {/* Status Pill */}
                             <div className="inline-flex items-center gap-3 bg-[var(--ema-dark)] text-white/90 px-5 py-2 md:px-6 md:py-2.5 rounded-full mb-6 md:mb-8 shadow-sm">
                                 <span className="relative flex h-2 w-2 md:h-2.5 md:w-2.5">
-                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-destructive opacity-40"></span>
-                                    <span className="relative inline-flex rounded-full h-2 w-2 md:h-2.5 md:w-2.5 bg-destructive"></span>
+                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-40"></span>
+                                    <span className="relative inline-flex rounded-full h-2 w-2 md:h-2.5 md:w-2.5 bg-red-500"></span>
                                 </span>
                                 <span className="text-[11px] md:text-[14px] font-serif font-light italic tracking-[0.2em]">ÎNCHIS MOMENTAN</span>
                             </div>
@@ -96,12 +96,12 @@ export function ClosedOverlay({ onUnlock }: { onUnlock?: () => void }) {
                                 </div>
                                 <div className="space-y-3 text-[var(--ema-dark)]">
                                     <div className="flex justify-between border-b border-[var(--ema-dark)]/20 pb-2">
-                                        <span>Luni – Sâmbătă</span>
+                                        <span>LUNI - SAMBATA</span>
                                         <span className="font-serif font-light italic">{BUSINESS_HOURS_LOGIC.openHour}:00 – {BUSINESS_HOURS_LOGIC.closeHour}:00</span>
                                     </div>
                                     <div className="flex justify-between text-muted-foreground">
-                                        <span>Duminică</span>
-                                        <span className="font-serif font-light italic uppercase tracking-wider text-xs">Închis</span>
+                                        <span>DUMINICA</span>
+                                        <span className="font-serif font-light italic uppercase tracking-wider text-xs">INCHIS</span>
                                     </div>
                                 </div>
                             </div>

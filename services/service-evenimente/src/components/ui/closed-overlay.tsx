@@ -96,12 +96,12 @@ export function ClosedOverlay({ onUnlock }: { onUnlock?: () => void }) {
                                 </div>
                                 <div className="space-y-3 text-[var(--ema-dark)]">
                                     <div className="flex justify-between border-b border-[var(--ema-dark)]/20 pb-2">
-                                        <span>Luni – Sâmbătă</span>
+                                        <span>LUNI - SAMBATA</span>
                                         <span className="font-serif font-light italic">{BUSINESS_HOURS_LOGIC.openHour}:00 – {BUSINESS_HOURS_LOGIC.closeHour}:00</span>
                                     </div>
                                     <div className="flex justify-between text-red-600">
-                                        <span>Duminică</span>
-                                        <span>Închis</span>
+                                        <span>DUMINICA</span>
+                                        <span>INCHIS</span>
                                     </div>
                                 </div>
                             </div>
