@@ -101,6 +101,9 @@ jobs:
               sed -i "s|^IMAGE_REGISTRY=.*|IMAGE_REGISTRY=$IMAGE_REGISTRY|" .env
             fi
             
+            # Stop services before pulling and recreating
+            docker compose down
+            
             # Pull latest images from GHCR
             docker compose pull
             
