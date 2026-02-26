@@ -102,7 +102,10 @@ jobs:
             fi
             
             # Stop services before pulling and recreating
-            docker compose down
+            docker compose down || true
+            docker rm -f $(docker ps -aq) || true
+            for port in {3032..3039}; do sudo fuser -k -9 $port/tcp || true; done
+            for port in {4032..4039}; do sudo fuser -k -9 $port/tcp || true; done
             
             # Pull latest images from GHCR
             docker compose pull
