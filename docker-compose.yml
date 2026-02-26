@@ -1,0 +1,172 @@
+version: '3.8'
+
+services:
+  service-acasa:
+    image: ${IMAGE_REGISTRY:-ghcr.io/local}/service-acasa:latest
+    build:
+      context: ./services/service-acasa
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "4032:3032"
+    environment:
+      - NODE_ENV=production
+      - TZ=Europe/Bucharest
+    volumes:
+      - ./shared-assets/images:/app/gateway-acasa/public/images:ro
+      - /etc/localtime:/etc/localtime:ro
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
+
+  service-despre-noi:
+    image: ${IMAGE_REGISTRY:-ghcr.io/local}/service-despre-noi:latest
+    build:
+      context: ./services/service-despre-noi
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "4033:3033"
+    environment:
+      - NODE_ENV=production
+      - TZ=Europe/Bucharest
+    volumes:
+      - ./shared-assets/images:/app/gateway-acasa/public/images:ro
+      - /etc/localtime:/etc/localtime:ro
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
+
+  service-meniu:
+    image: ${IMAGE_REGISTRY:-ghcr.io/local}/service-meniu:latest
+    build:
+      context: ./services/service-meniu
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "4034:3034"
+    environment:
+      - NODE_ENV=production
+      - TZ=Europe/Bucharest
+    volumes:
+      - ./shared-assets/images:/app/gateway-acasa/public/images:ro
+      - /etc/localtime:/etc/localtime:ro
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
+
+  service-evenimente:
+    image: ${IMAGE_REGISTRY:-ghcr.io/local}/service-evenimente:latest
+    build:
+      context: ./services/service-evenimente
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "4035:3035"
+    environment:
+      - NODE_ENV=production
+      - TZ=Europe/Bucharest
+    volumes:
+      - ./shared-assets/images:/app/gateway-acasa/public/images:ro
+      - /etc/localtime:/etc/localtime:ro
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
+
+  service-parteneri-clienti:
+    image: ${IMAGE_REGISTRY:-ghcr.io/local}/service-parteneri-clienti:latest
+    build:
+      context: ./services/service-parteneri-clienti
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "4036:3036"
+    environment:
+      - NODE_ENV=production
+      - TZ=Europe/Bucharest
+    volumes:
+      - ./shared-assets/images:/app/gateway-acasa/public/images:ro
+      - /etc/localtime:/etc/localtime:ro
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
+
+  service-galerie:
+    image: ${IMAGE_REGISTRY:-ghcr.io/local}/service-galerie:latest
+    build:
+      context: ./services/service-galerie
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "4037:3037"
+    environment:
+      - NODE_ENV=production
+      - TZ=Europe/Bucharest
+    volumes:
+      - ./shared-assets/images:/app/gateway-acasa/public/images:ro
+      - /etc/localtime:/etc/localtime:ro
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
+
+  service-blog:
+    image: ${IMAGE_REGISTRY:-ghcr.io/local}/service-blog:latest
+    build:
+      context: ./services/service-blog
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "4038:3038"
+    environment:
+      - NODE_ENV=production
+      - TZ=Europe/Bucharest
+    volumes:
+      - ./shared-assets/images:/app/gateway-acasa/public/images:ro
+      - /etc/localtime:/etc/localtime:ro
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
+
+  service-contact:
+    image: ${IMAGE_REGISTRY:-ghcr.io/local}/service-contact:latest
+    build:
+      context: ./services/service-contact
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "4039:3039"
+    environment:
+      - NODE_ENV=production
+      - TZ=Europe/Bucharest
+    volumes:
+      - ./shared-assets/images:/app/gateway-acasa/public/images:ro
+      - /etc/localtime:/etc/localtime:ro
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
+
+  nginx-gateway:
+    image: nginx:alpine
+    restart: unless-stopped
+    ports:
+      - "8081:80"
+      - "8443:443"
+    environment:
+      - TZ=Europe/Bucharest
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/ssl:/etc/nginx/ssl
+      - ./shared-assets/images:/usr/share/nginx/html/images:ro
+      - /etc/localtime:/etc/localtime:ro
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
+    depends_on:
+      - service-acasa
+      - service-despre-noi
+      - service-meniu
+      - service-evenimente
+      - service-parteneri-clienti
+      - service-galerie
+      - service-blog
+      - service-contact

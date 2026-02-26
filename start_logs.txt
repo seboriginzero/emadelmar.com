@@ -1,0 +1,25 @@
+Stopping existing services...
+✅ All services stopped.
+Starting microservices architecture...
+Waiting for services to become ready...
+Waiting for port 8080... OK
+Waiting for port 3032... OK
+Waiting for port 3033... OK
+Waiting for port 3034... OK
+Waiting for port 3035... OK
+Waiting for port 3036... OK
+Waiting for port 3037... OK
+Waiting for port 3038... OK
+Waiting for port 3039... OK
+✅ All services successfully spun up and validated.
+
+🔗 Gateway Entry URL: http://127.0.0.1:8080
+./start_services.sh: line 29:  6534 Killed: 9               node server.js > /dev/null 2>&1
+./start_services.sh: line 29:  6536 Killed: 9               npm start > /dev/null 2>&1
+./start_services.sh: line 29:  6537 Killed: 9               npm start > /dev/null 2>&1
+./start_services.sh: line 29:  6539 Killed: 9               npm start > /dev/null 2>&1
+./start_services.sh: line 29:  6541 Killed: 9               npm start > /dev/null 2>&1
+./start_services.sh: line 29:  6543 Killed: 9               npm start > /dev/null 2>&1
+./start_services.sh: line 29:  6545 Killed: 9               npm start > /dev/null 2>&1
+./start_services.sh: line 29:  6547 Killed: 9               npm start > /dev/null 2>&1
+./start_services.sh: line 29:  6548 Killed: 9               npm start > /dev/null 2>&1

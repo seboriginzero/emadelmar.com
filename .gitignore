@@ -1,0 +1,8 @@
+node_modules/
+.DS_Store
+deploy-ready/
+.next/
+letsencrypt/
+letsencrypt-var/
+.env
+*.log

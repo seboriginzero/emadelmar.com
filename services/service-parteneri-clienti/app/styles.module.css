@@ -1,0 +1,13 @@
+.page {
+    /* Prove local scoping: this padding does not affect globals */
+    padding-top: 1px;
+}
+
+/* 
+  Example of strictly scoped tags.
+  If P&C needs custom h1 rules, they stay exclusively here.
+*/
+.page h1 {
+    /* Using tokens where possible, adding scoped overrides */
+    font-family: var(--font-serif);
+}
